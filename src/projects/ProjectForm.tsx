@@ -12,8 +12,7 @@ function ProjectForm({
 }: ProjectFormProp) {
   const [project, setProject] = useState(initialProject);
   const [error, setError] = useState({ name: "", description: "", budget: "" });
-  console.log("initialProject: " + JSON.stringify(project));
-
+  
   function validate(project: Project) {
     let errors: any = { name: "", description: "", budget: "" };
     if (project.name.length <= 3) {
@@ -53,14 +52,13 @@ function ProjectForm({
       return updatedProject;
     });
     setError(() => validate(updatedProject));
-    console.log(project);
-    console.log("error: " + error);
   };
   const handleSubmit = (event: SyntheticEvent) => {
     event.preventDefault();
     if (!isValid) {
-      onSave(project);
+     return
     }
+    onSave(project);
   };
 
   return (
