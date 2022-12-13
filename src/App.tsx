@@ -1,7 +1,8 @@
 import "./app.css";
-import ProjectPage from "./projects/ProjectsPage";
+import ProjectPage from "./projects/ProjectPage";
 import { BrowserRouter as Router,Routes, Route, NavLink} from 'react-router-dom'
 import Home from "./home/home";
+import ProjectsPage from "./projects/ProjectsPage";
 export default function App() {
   return (
     <Router>
@@ -21,7 +22,8 @@ export default function App() {
         <div className="cpntainer">
         <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/projects' element={<ProjectPage />} />
+        <Route path='/projects' element={<ProjectsPage />} />
+        <Route path='/projects/:id' element={<ProjectPage />} />
         </Routes>
         </div>
       </Router>
